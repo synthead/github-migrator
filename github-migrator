@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+Bundler.require(:default)
+
+class GithubIssue
+  def initialize(oauth_token:, user:, repository:)
+    @github = Github.new(oauth_token: oauth_token)
+    @user = user
+    @repository = repository
+  end
+
+  def create(title:, body:, closed: false)
+    issue = @github.issues.create(
+      @user,
+      @repository,
+      title: title,
+      body: body
+    )
+
+    close_issue(issue) unless closed
+  end
+
+  private
+
+  def close_issue(issue)
+    @github.issues.edit(
+      @user,
+      @repository,
+      issue.number,
+      state: 'closed'
+    )
+  end
+end
+
+config = YAML.load_file('config.yml')
+
+github_issue = GithubIssue.new(
+  config['github']
+)
+
+github_issue.create(
+  title: 'Hello world!',
+  body: 'This is a test open issue.'
+)
+
+github_issue.create(
+  title: 'Hello world!',
+  body: 'This is a test closed issue.',
+  closed: true
+)

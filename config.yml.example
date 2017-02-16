@@ -1,0 +1,5 @@
+---
+github:
+  :oauth_token: hackme
+  :user: synthead
+  :repository: github-migrator-test
