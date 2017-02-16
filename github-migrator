@@ -18,7 +18,7 @@ class GithubIssue
       body: body
     )
 
-    close_issue(issue) unless closed
+    close_issue(issue) if closed
   end
 
   private
