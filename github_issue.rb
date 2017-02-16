@@ -1,6 +1,6 @@
 class GithubIssue
-  def initialize(oauth_token:, user:, repository:)
-    @github = Github.new(oauth_token: oauth_token)
+  def initialize(authentication:, user:, repository:)
+    @github = Github.new(authentication)
     @user = user
     @repository = repository
   end
