@@ -4,20 +4,11 @@ require 'bundler/setup'
 Bundler.require(:default)
 
 require './github_issue'
+require './issue_sources/bitbucket_issue'
 
 config = YAML.load_file('config.yml')
 
-github_issue = GithubIssue.new(
-  config['github']
-)
+github_issue = GithubIssue.new(config['github'])
+bitbucket_issue = BitbucketIssue.new(config['bitbucket'])
 
-github_issue.create(
-  title: 'Hello world!',
-  body: 'This is a test open issue.'
-)
-
-github_issue.create(
-  title: 'Hello world!',
-  body: 'This is a test closed issue.',
-  closed: true
-)
+bitbucket_issue.all.each { |i| github_issue.create(i) }
