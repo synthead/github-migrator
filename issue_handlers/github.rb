@@ -14,12 +14,12 @@ module IssueHandlers
         body: body
       )
 
-      close_issue(issue) if closed
+      close(issue) if closed
     end
 
     private
 
-    def close_issue(issue)
+    def close(issue)
       @github.issues.edit(
         @user,
         @repository,

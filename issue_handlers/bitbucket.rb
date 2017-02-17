@@ -8,18 +8,18 @@ module IssueHandlers
       @repository = repository
     end
 
-    def all
-      all_bitbucket.map { |i| as_github_issue(i) }
-    end
-
-    private
-
-    def all_bitbucket
+    def read_all
       @bitbucket.issues.list_repository(
         @user,
         @repository
       )
     end
+
+    def read_all_as_github
+      read_all.map { |i| as_github_issue(i) }
+    end
+
+    private
 
     def as_github_issue(issue)
       {

@@ -11,4 +11,4 @@ config = YAML.load_file('config.yml')
 github = IssueHandlers::Github.new(config['github'])
 bitbucket = IssueHandlers::Bitbucket.new(config['bitbucket'])
 
-bitbucket.all.each { |i| github.create(i) }
+bitbucket.read_all_as_github.each { |i| github.create(i) }
