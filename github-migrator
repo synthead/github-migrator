@@ -3,12 +3,12 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require './github_issue'
-require './issue_sources/bitbucket_issue'
+require './issue_handlers/bitbucket'
+require './issue_handlers/github'
 
 config = YAML.load_file('config.yml')
 
-github_issue = GithubIssue.new(config['github'])
-bitbucket_issue = BitbucketIssue.new(config['bitbucket'])
+github = IssueHandlers::Github.new(config['github'])
+bitbucket = IssueHandlers::Bitbucket.new(config['bitbucket'])
 
-bitbucket_issue.all.each { |i| github_issue.create(i) }
+bitbucket.all.each { |i| github.create(i) }
