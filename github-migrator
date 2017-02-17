@@ -6,10 +6,9 @@ Bundler.require(:default)
 require_all File.join(__dir__, 'lib')
 
 config_dir = File.join(__dir__, 'config')
-github_config = YAML.load_file(File.join(config_dir, 'github.yml'))
-bitbucket_config = YAML.load_file(File.join(config_dir, 'bitbucket.yml'))
+config_data = ConfigData.new(config_dir, ['github', 'bitbucket'])
 
-github = IssueHandlers::Github.new(github_config)
-bitbucket = IssueHandlers::Bitbucket.new(bitbucket_config)
+github = IssueHandlers::Github.new(config_data.config['github'])
+bitbucket = IssueHandlers::Bitbucket.new(config_data.config['bitbucket'])
 
 bitbucket.read_all.each { |i| github.create(i) }
