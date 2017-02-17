@@ -3,8 +3,8 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require './issue_handlers/bitbucket'
-require './issue_handlers/github'
+require './lib/issue_handlers/bitbucket'
+require './lib/issue_handlers/github'
 
 config = YAML.load_file('config.yml')
 
