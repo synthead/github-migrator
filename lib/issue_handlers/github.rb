@@ -14,7 +14,7 @@ module IssueHandlers
         body: body
       )
 
-      close(issue) if closed
+      (closed ? close(issue) : issue).body
     end
 
     private
