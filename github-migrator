@@ -3,8 +3,7 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require_relative 'lib/issue_handlers/bitbucket'
-require_relative 'lib/issue_handlers/github'
+require_all File.join(__dir__, 'lib')
 
 config_dir = File.join(__dir__, 'config')
 github_config = YAML.load_file(File.join(config_dir, 'github.yml'))
