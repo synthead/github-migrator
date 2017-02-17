@@ -6,8 +6,9 @@ Bundler.require(:default)
 require_relative 'lib/issue_handlers/bitbucket'
 require_relative 'lib/issue_handlers/github'
 
-github_config = YAML.load_file('config/github.yml')
-bitbucket_config = YAML.load_file('config/bitbucket.yml')
+config_dir = File.join(__dir__, 'config')
+github_config = YAML.load_file(File.join(config_dir, 'github.yml'))
+bitbucket_config = YAML.load_file(File.join(config_dir, 'bitbucket.yml'))
 
 github = IssueHandlers::Github.new(github_config)
 bitbucket = IssueHandlers::Bitbucket.new(bitbucket_config)
