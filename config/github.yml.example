@@ -1,0 +1,18 @@
+---
+:user: synthead
+:repository: github-migrator-test
+
+:authentication:
+  # This section is passed directly to Github.new with the intent of
+  # establishing authentication.  More details about valid values can be
+  # found here: https://github.com/piotrmurach/github#3-authentication
+
+  # To use an OAuth token:
+  # :oauth_token: your_oauth_token
+
+  # To use a client ID and secret:
+  # :client_id: your_client_id
+  # :client_secret: your_client_secret
+
+  # To use basic authentication:
+  # :basic_auth: your_username:your_password
