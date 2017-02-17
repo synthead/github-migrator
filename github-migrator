@@ -13,4 +13,4 @@ bitbucket_config = YAML.load_file(File.join(config_dir, 'bitbucket.yml'))
 github = IssueHandlers::Github.new(github_config)
 bitbucket = IssueHandlers::Bitbucket.new(bitbucket_config)
 
-bitbucket.read_all_as_github.each { |i| github.create(i) }
+bitbucket.read_all.each { |i| github.create(i) }
