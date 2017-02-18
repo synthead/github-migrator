@@ -1,13 +1,11 @@
 module IssueHandlers
   class Bitbucket
-    attr_reader :user
     attr_reader :repository
 
     CLOSED_STATUSES = %w(resolved invalid duplicate wontfix).freeze
 
-    def initialize(authentication:, user:, repository:)
+    def initialize(authentication:, repository:)
       @bitbucket = ::BitBucket.new(authentication)
-      @user = user
       @repository = repository
     end
 
@@ -19,8 +17,7 @@ module IssueHandlers
 
     def read_all_as_bitbucket
       @bitbucket.issues.list_repository(
-        @user,
-        @repository
+        *@repository.split('/')
       )
     end
 

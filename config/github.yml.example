@@ -1,6 +1,5 @@
 ---
-:user: synthead
-:repository: github-migrator-test
+:repository: github_user/github_repository
 
 :authentication:
   # This section is passed directly to Github.new with the intent of

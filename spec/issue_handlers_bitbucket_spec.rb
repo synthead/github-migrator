@@ -62,17 +62,12 @@ describe 'IssueHandler::Bitbucket' do
   it 'can be initialized' do
     bitbucket = IssueHandlers::Bitbucket.new(
       authentication: {},
-      user: 'test-user',
-      repository: 'test-repository'
+      repository: 'user/repository'
     )
   end
 
-  it 'has a user attribute' do
-    expect(bitbucket.user).to eq('test-user')
-  end
-
   it 'has a repository attribute' do
-    expect(bitbucket.repository).to eq('test-repository')
+    expect(bitbucket.repository).to eq('user/repository')
   end
 
   it 'returns valid GitHub-formatted issues' do

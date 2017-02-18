@@ -1,18 +1,15 @@
 module IssueHandlers
   class Github
-    attr_reader :user
     attr_reader :repository
 
-    def initialize(authentication:, user:, repository:)
+    def initialize(authentication:, repository:)
       @github = ::Github.new(authentication)
-      @user = user
       @repository = repository
     end
 
     def create(title:, body:, closed: false)
       issue = @github.issues.create(
-        @user,
-        @repository,
+        *@repository.split('/'),
         title: title,
         body: body
       )
@@ -24,8 +21,7 @@ module IssueHandlers
 
     def close(issue)
       @github.issues.edit(
-        @user,
-        @repository,
+        *@repository.split('/'),
         issue.number,
         state: 'closed'
       )

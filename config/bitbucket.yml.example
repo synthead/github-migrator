@@ -1,6 +1,5 @@
 ---
-:user: synthead
-:repository: github-migrator-test
+:repository: bitbucket_user/bitbucket_repository
 
 :authentication:
   # This section is passed directly to BitBucket.new with the intent of

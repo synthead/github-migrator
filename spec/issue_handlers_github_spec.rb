@@ -38,17 +38,12 @@ describe 'IssueHandler::Github' do
   it 'can be initialized' do
     github = IssueHandlers::Github.new(
       authentication: {},
-      user: 'test-user',
-      repository: 'test-repository'
+      repository: 'user/repository'
     )
   end
 
-  it 'has a user attribute' do
-    expect(github.user).to eq('test-user')
-  end
-
   it 'has a repository attribute' do
-    expect(github.repository).to eq('test-repository')
+    expect(github.repository).to eq('user/repository')
   end
 
   it 'returns issue data when "create" method is called' do
