@@ -8,7 +8,7 @@ github-migrator is a tool for migrating Bitbucket issues into GitHub as GitHub i
 
 Before you get started, you must have a Ruby environment on your system.  If you get a Ruby version after you issue `ruby -v` on a command line, you're set.
 
-Next, you're going to install some gems.  This project leverages Bundler for its gem dependencies, so make sure it's installed by running `gem install bundler`.  Afterwards, run `bundle install` from the project's root directory to install all the pretty little gems.  Yes, they're pretty... don't judge!
+Next, you'll need to install some gems.  This project leverages Bundler for its gem dependencies, so make sure it's installed by running `gem install bundler`.  Afterwards, run `bundle install` from the project's root directory to install all the pretty little gems.  Yes, they're pretty... don't judge!
 
 ## Configuration
 
