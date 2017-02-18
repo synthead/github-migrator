@@ -19,12 +19,6 @@ migrator = Migrator.new(
 begin
   migrator.migrate
   puts 'Done!'
-rescue Github::Error::Unauthorized
-  abort('Could not authorize to GitHub!')
-rescue Github::Error::NotFound
-  abort("GitHub repository \"#{github.repository}\" not found!")
-rescue BitBucket::Error::Unauthorized
-  abort('Could not authorize to Bitbucket!')
-rescue BitBucket::Error::NotFound
-  abort("Bitbucket repository \"#{bitbucket.repository}\" not found!")
+rescue IssueHandlers::Unauthorized, IssueHandlers::NotFound => exception
+  abort(exception.message)
 end

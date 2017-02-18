@@ -18,8 +18,16 @@ module IssueHandlers
     private
 
     def read_all_as_bitbucket
-      @bitbucket.issues.list_repository(
-        *@repository.split('/')
+      @bitbucket.issues.list_repository(*@repository.split('/'))
+    rescue BitBucket::Error::Unauthorized
+      raise(
+        IssueHandlers::Unauthorized,
+        "Could not authorize to #{@handler_name}!"
+      )
+    rescue BitBucket::Error::NotFound
+      raise(
+        IssueHandlers::NotFound,
+        "#{@handler_name} repository \"#{@repository}\" not found!"
       )
     end
 

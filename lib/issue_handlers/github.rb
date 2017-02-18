@@ -17,6 +17,16 @@ module IssueHandlers
       )
 
       (closed ? close(issue) : issue).body
+    rescue ::Github::Error::Unauthorized
+      raise(
+        IssueHandlers::Unauthorized,
+        "Could not authorize to #{@handler_name}!"
+      )
+    rescue ::Github::Error::NotFound
+      raise(
+        IssueHandlers::NotFound,
+        "#{@handler_name} repository \"#{@repository}\" not found!"
+      )
     end
 
     private
