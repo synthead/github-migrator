@@ -12,16 +12,13 @@ Next, you'll need to install some gems.  This project leverages [Bundler](http:/
 
 ## Configuration
 
-Alright, so you got your environment setup.  Cool!  Now we have to configure github-migrator so it knows who to log in as and what repositories to care about.  There's two example configuration files in [the `config/` directory](https://github.com/synthead/github-migrator/tree/master/config) that we'll copy to real configs to call our very own.  Do this by running these commands from the project's root:
+Alright, so you got your environment setup.  Cool!  Now we have to configure github-migrator so it knows who to log in as and what repositories to care about.  First, let's copy [the `issue_handlers.yml.example` file](https://github.com/synthead/github-migrator/blob/master/config/issue_handlers.yml.example) to `issue_handlers.yml` like so:
 
 ```shell
-cp config/bitbucket.yml.example config/bitbucket.yml
-cp config/github.yml.example config/github.yml
+cp config/issue_handlers.yml.example config/issue_handlers.yml
 ```
 
-Now, open these guys up with your very favorite text editor and configure away.  Remember that this project reads from Bitbucket and writes to GitHub, so you'll want configure `bitbucket.yml` with a user and repository to read from, and `github.yml` with a user and repository to write to.
-
-In addition, each `.yml` file has its own `authentication` section that allows you to authenticate to Bitbucket and GitHub using any of their supported methods.  Currently, this includes OAuth tokens, client IDs and secrets, or trusty old basic authentication.  All of the keys for these options have been commented-out for ease.
+Now, open `config/issue_handlers.yml` up with your very favorite text editor and configure away.  The file is self-documented, so follow the comments to get the repository and authentication settings configured for both Bitbucket and GitHub.
 
 ## Usage
 

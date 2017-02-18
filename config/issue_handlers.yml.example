@@ -1,0 +1,38 @@
+---
+bitbucket:
+  # The Bitbucket repository to read issues from.
+  :repository: bitbucket_user/bitbucket_repository
+
+  # This section is passed directly to BitBucket.new with the intent of
+  # establishing authentication.  More details about valid values can be
+  # found here: https://github.com/bitbucket-rest-api/bitbucket#usage
+  :authentication:
+    # To use an OAuth token and secret:
+    # :oauth_token: your_oauth_token
+    # :oauth_secret: your_oauth_secret
+
+    # To use a client ID and secret:
+    # :client_id: your_client_id
+    # :client_secret: your_client_secret
+
+    # To use basic authentication:
+    # :login: your_username
+    # :password: your_password
+
+github:
+  # The GitHub repository to write issues to.
+  :repository: github_user/github_repository
+
+  # This section is passed directly to Github.new with the intent of
+  # establishing authentication.  More details about valid values can be
+  # found here: https://github.com/piotrmurach/github#3-authentication
+  :authentication:
+    # To use an OAuth token:
+    # :oauth_token: your_oauth_token
+
+    # To use a client ID and secret:
+    # :client_id: your_client_id
+    # :client_secret: your_client_secret
+
+    # To use basic authentication:
+    # :basic_auth: your_username:your_password

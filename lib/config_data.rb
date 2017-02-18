@@ -1,23 +1,16 @@
 class ConfigData
-  attr_accessor :config
+  def initialize(config_path)
+    @config = load_config_yaml(config_path)
+  end
 
-  def initialize(config_dir, endpoints)
-    @config = load_config_files(config_dir, endpoints)
+  def [](config_section)
+    @config[config_section]
   end
 
   private
 
-  def load_config_files(config_dir, endpoints)
-    {}.tap do |config|
-      endpoints.each do |endpoint|
-        path = File.join(config_dir, "#{endpoint}.yml")
-        config[endpoint] = load_yaml_with_exceptions(path)
-      end
-    end
-  end
-
-  def load_valid_yaml(path)
-    yaml_data = YAML.load_file(path)
+  def load_config_yaml(config_path)
+    yaml_data = YAML.load_file(config_path)
 
     unless yaml_data.is_a?(Hash)
       abort("Encountered malformed data while reading \"#{path}\"!")
