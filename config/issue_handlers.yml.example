@@ -1,13 +1,12 @@
 ---
 bitbucket:
   # The Bitbucket repository to read issues from.
-  # The --bitbucket-repo option overrides this setting.
-  :repository: bitbucket_user/bitbucket_repository
+  # :repository: bitbucket_user/bitbucket_repository
 
   # This section is passed directly to BitBucket.new with the intent of
   # establishing authentication.  More details about valid values can be
   # found here: https://github.com/bitbucket-rest-api/bitbucket#usage
-  :authentication:
+  # :authentication:
     # To use an OAuth token and secret:
     # :oauth_token: your_oauth_token
     # :oauth_secret: your_oauth_secret
@@ -22,13 +21,12 @@ bitbucket:
 
 github:
   # The GitHub repository to write issues to.
-  # The --github-repo option overrides this setting.
-  :repository: github_user/github_repository
+  # :repository: github_user/github_repository
 
   # This section is passed directly to Github.new with the intent of
   # establishing authentication.  More details about valid values can be
   # found here: https://github.com/piotrmurach/github#3-authentication
-  :authentication:
+  # :authentication:
     # To use an OAuth token:
     # :oauth_token: your_oauth_token
 
