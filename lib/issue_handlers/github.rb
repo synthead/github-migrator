@@ -1,10 +1,12 @@
 module IssueHandlers
   class Github
     attr_reader :repository
+    attr_reader :handler_name
 
     def initialize(authentication:, repository:)
       @github = ::Github.new(authentication)
       @repository = repository
+      @handler_name = 'GitHub'
     end
 
     def create(title:, body:, closed: false)

@@ -11,18 +11,13 @@ config = ConfigData.new(config_path)
 github = IssueHandlers::Github.new(config['github'])
 bitbucket = IssueHandlers::Bitbucket.new(config['bitbucket'])
 
+migrator = Migrator.new(
+  source: bitbucket,
+  destination: github
+)
+
 begin
-  print "Fetching issues from Bitbucket repository #{bitbucket.repository}... "
-  bitbucket_issues = bitbucket.read_all
-  puts "#{bitbucket_issues.length} issues found."
-
-  puts "Creating #{bitbucket_issues.length} issues in GitHub repository" \
-    " #{github.repository}..."
-  bitbucket_issues.each_with_index do |issue, index|
-    github.create(issue)
-    puts "[#{index + 1}/#{bitbucket_issues.length}] #{issue[:title]}"
-  end
-
+  migrator.migrate
   puts 'Done!'
 rescue Github::Error::Unauthorized
   abort('Could not authorize to GitHub!')
