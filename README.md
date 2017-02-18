@@ -8,7 +8,7 @@ github-migrator is a tool for migrating Bitbucket issues into GitHub as GitHub i
 
 Before you get started, you must have Ruby installed.  Here's some [helpful documentation on how to install Ruby](https://www.ruby-lang.org/en/documentation/installation/).  Next, you'll need to install some gems.  This project leverages [Bundler](http://bundler.io/) for its gem dependencies, so this is super easy:
 
-```shell
+```
 $ gem install bundler
 $ bundle install
 ```
@@ -19,7 +19,7 @@ That's it!  We're all set up.
 
 github-migrator will run with no configuration or options!  It attempts to read `config/issue_handlers.yml` first, parses command-line options second, and asks you for whatever it doesn't have last.  So go ahead and just run it!
 
-```shell
+```
 $ ./github-migrator
 Bitbucket repository to read issues from:
 ```
@@ -41,7 +41,7 @@ Please note that tokens and passwords cannot be passed via command line options!
 
 A configuration file is optional, and all of its settings are optional as well!  Set what you'd like, and you'll be kindly prompted for any missing settings.  Handy!  Want to use one?  Great!  First, let's copy [the `config/issue_handlers.yml.example` file](https://github.com/synthead/github-migrator/blob/master/config/issue_handlers.yml.example) to `config/issue_handlers.yml` like so:
 
-```shell
+```
 cp config/issue_handlers.yml.example config/issue_handlers.yml
 ```
 
