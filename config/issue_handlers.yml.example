@@ -1,6 +1,7 @@
 ---
 bitbucket:
   # The Bitbucket repository to read issues from.
+  # The --bitbucket-repo option overrides this setting.
   :repository: bitbucket_user/bitbucket_repository
 
   # This section is passed directly to BitBucket.new with the intent of
@@ -21,6 +22,7 @@ bitbucket:
 
 github:
   # The GitHub repository to write issues to.
+  # The --github-repo option overrides this setting.
   :repository: github_user/github_repository
 
   # This section is passed directly to Github.new with the intent of
