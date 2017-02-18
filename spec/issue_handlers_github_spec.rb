@@ -15,7 +15,7 @@ GITHUB_RESPONSE_WRAPPER = Github::ResponseWrapper.new(
   Github::Client::Issues.new
 ).freeze
 
-class Github
+module Github
   class Client
     class Issues
       def create(*args)
