@@ -19,6 +19,10 @@ module IssueHandlers
         @user,
         @repository
       )
+    rescue BitBucket::Error::Unauthorized
+      abort('Could not authorize to Bitbucket!')
+    rescue BitBucket::Error::NotFound
+      abort("Bitbucket repository \"#{@user}/#{@repository}\" not found!")
     end
 
     def as_github_issue(issue)
