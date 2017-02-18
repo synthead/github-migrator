@@ -43,6 +43,14 @@ describe 'IssueHandler::Github' do
     )
   end
 
+  it 'has a user attribute' do
+    expect(github.user).to eq('test-user')
+  end
+
+  it 'has a repository attribute' do
+    expect(github.repository).to eq('test-repository')
+  end
+
   it 'returns issue data when "create" method is called' do
     expect(github.create(title: '', body: '')).to eq(GITHUB_BODY)
   end
