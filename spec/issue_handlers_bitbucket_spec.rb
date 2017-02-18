@@ -67,6 +67,14 @@ describe 'IssueHandler::Bitbucket' do
     )
   end
 
+  it 'has a user attribute' do
+    expect(bitbucket.user).to eq('test-user')
+  end
+
+  it 'has a repository attribute' do
+    expect(bitbucket.repository).to eq('test-repository')
+  end
+
   it 'returns valid GitHub-formatted issues' do
     allow(bitbucket).to receive(:read_all_as_bitbucket).and_return(
       [BITBUCKET_MOCK_ISSUE]
