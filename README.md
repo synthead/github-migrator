@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/synthead/github-migrator.svg?branch=master)](https://travis-ci.org/synthead/github-migrator)
+
 ## Overview
 
 github-migrator is a tool for migrating Bitbucket issues into GitHub as GitHub issues.  It is written in Ruby and leverages the most excellent [github\_api](https://github.com/piotrmurach/github) and [bitbucket\_rest\_api](https://github.com/bitbucket-rest-api/bitbucket) gems.
