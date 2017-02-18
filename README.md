@@ -6,7 +6,7 @@ github-migrator is a tool for migrating Bitbucket issues into GitHub as GitHub i
 
 ## Setting up your environment
 
-Before you get started, you must have a Ruby environment on your system.  If you get a Ruby version after you issue `ruby -v` on a command line, you're set.
+Before you get started, you must have a Ruby environment on your system.  If you get a Ruby version after you issue `ruby -v` on a command line, you're set.  If not, thumb through [the documentation for how to install Ruby](https://www.ruby-lang.org/en/documentation/installation/), get it installed, and swing back here when you're ready.
 
 Next, you'll need to install some gems.  This project leverages [Bundler](http://bundler.io/) for its gem dependencies, so make sure it's installed by running `gem install bundler`.  Afterwards, run `bundle install` from the project's root directory to install all the pretty little gems.  Yes, they're pretty... don't judge!
 
