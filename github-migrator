@@ -11,4 +11,13 @@ config_data = ConfigData.new(config_dir, ['github', 'bitbucket'])
 github = IssueHandlers::Github.new(config_data.config['github'])
 bitbucket = IssueHandlers::Bitbucket.new(config_data.config['bitbucket'])
 
-bitbucket.read_all.each { |i| github.create(i) }
+begin
+  bitbucket.read_all.each { |i| github.create(i) }
+rescue BitBucket::Error::Unauthorized
+  abort('Could not authorize to Bitbucket!')
+rescue BitBucket::Error::NotFound
+  abort(
+    "Bitbucket repository \"#{bitbucket.user}/#{bitbucket.repository}\" not" \
+    " found!"
+  )
+end
