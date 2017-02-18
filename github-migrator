@@ -13,6 +13,10 @@ bitbucket = IssueHandlers::Bitbucket.new(config_data.config['bitbucket'])
 
 begin
   bitbucket.read_all.each { |i| github.create(i) }
+rescue Github::Error::Unauthorized
+  abort('Could not authorize to GitHub!')
+rescue Github::Error::NotFound
+  abort("GitHub repository \"#{github.user}/#{github.repository}\" not found!")
 rescue BitBucket::Error::Unauthorized
   abort('Could not authorize to Bitbucket!')
 rescue BitBucket::Error::NotFound
